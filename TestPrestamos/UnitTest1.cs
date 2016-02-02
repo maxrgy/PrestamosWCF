@@ -14,7 +14,7 @@ namespace TestPrestamos
         public void TestCrear()
         {
             equiposWS.EquiposClient proxy = new equiposWS.EquiposClient();
-            Equipo creado = proxy.CrearEquipo(2, "otra vez", 2);
+            Equipo creado = proxy.CrearEquipo(2, "P01022016", 2);
             Assert.IsNotNull(creado);
         }
 
