@@ -97,8 +97,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Dominio\Equipo.hbm.xml" />
     <Content Include="Categorias.svc" />
-    <EmbeddedResource Include="Dominio\Modelo.hbm.xml" />
-    <EmbeddedResource Include="Dominio\Categoria.hbm.xml" />
+    <Content Include="Dominio\Categoria.hbm.xml" />
+    <Content Include="Dominio\Modelo.hbm.xml" />
     <Content Include="Equipos.svc" />
     <Content Include="Modelos.svc" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
