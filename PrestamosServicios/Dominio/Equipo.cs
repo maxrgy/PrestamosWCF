@@ -16,6 +16,6 @@ namespace PrestamosServicios.Dominio
         [DataMember]
         public string Estado { get; set; }
         [DataMember]
-        public int Categoria{ get; set; }
+        public string Serie{ get; set; }
     }
 }

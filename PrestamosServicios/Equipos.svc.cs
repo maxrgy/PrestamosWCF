@@ -42,7 +42,7 @@ namespace PrestamosServicios
             }   
         }
 
-        public Equipo CrearEquipo(int modelo, string estado, int categoria)
+        public Equipo CrearEquipo(int modelo, string estado, string serie)
         {
             if ("12345".Equals(estado))
             {
@@ -60,7 +60,7 @@ namespace PrestamosServicios
                 
                 Modelo = modelo,
                 Estado = estado,
-                Categoria = categoria
+                Serie = serie
 
             };
             return EquipoDAO.Crear(equipoACrear);
@@ -77,14 +77,14 @@ namespace PrestamosServicios
             return EquipoDAO.ListarTodos().ToList();
         }
 
-        public Equipo ModificarEquipo(int codigo, int modelo, string estado, int categoria)
+        public Equipo ModificarEquipo(int codigo, int modelo, string estado, string serie)
         {
             Equipo equipoAModificar = new Equipo()
             {
                 Codigo = codigo,
                 Modelo = modelo,
                 Estado = estado,
-                Categoria = categoria
+                Serie = serie
 
             };
             return EquipoDAO.Modificar(equipoAModificar);

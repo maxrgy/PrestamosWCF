@@ -13,11 +13,11 @@ namespace PrestamosServicios
     {
         [FaultContract(typeof(ExcepcionEquipo))]
         [OperationContract]
-        Equipo CrearEquipo(int modelo, string estado, int categoria);
+        Equipo CrearEquipo(int modelo, string estado, string serie);
         [OperationContract]
         Equipo ObtenerEquipo(int codigo);
         [OperationContract]
-        Equipo ModificarEquipo(int codigo, int modelo, string estado, int categoria);
+        Equipo ModificarEquipo(int codigo, int modelo, string estado, string serie);
         [OperationContract]
         void EliminarEquipo(int codigo);
         [OperationContract]

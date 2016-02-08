@@ -9,6 +9,6 @@
     </id>
     <property name="Modelo" column="co_modelo" />
     <property name="Estado" column="estado" />
-    <property name="Categoria" column="co_categoria" />
+    <property name="Serie" column="serie" />
   </class>
 </hibernate-mapping>
