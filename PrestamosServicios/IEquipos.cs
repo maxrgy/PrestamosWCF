@@ -15,13 +15,12 @@ namespace PrestamosServicios
         [OperationContract]
         Equipo CrearEquipo(int modelo, string estado, string serie);
         [OperationContract]
-        Equipo ObtenerEquipo(int codigo);
+        Equipo ObtenerEquipo(string serie);
         [OperationContract]
-        Equipo ModificarEquipo(int codigo, int modelo, string estado, string serie);
+        Equipo ModificarEquipo(int modelo, string estado, string serie);
         [OperationContract]
-        void EliminarEquipo(int codigo);
+        void EliminarEquipo(string serie);
         [OperationContract]
         List<Equipo> ListarEquipos();
     }
 }
-    

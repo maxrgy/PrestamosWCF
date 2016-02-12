@@ -4,11 +4,9 @@
                    namespace="PrestamosServicios.Dominio"
                    default-lazy="false">
   <class name="Equipo" table="Equipo">
-    <id name="Codigo" column="co_equipo">
-      <generator class="increment" />
+    <id name="Serie" column="serie">
     </id>
-    <property name="Modelo" column="co_modelo" />
     <property name="Estado" column="estado" />
-    <property name="Serie" column="serie" />
+    <many-to-one name="Modelo" column="co_modelo" />
   </class>
 </hibernate-mapping>

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PrestamosServicios.Persistencia
 {
-    public class EquipoDAO : BaseDAO<Equipo, string>
+    public class PrestamoDAO : BaseDAO<Prestamo, int>
     {
     }
 }

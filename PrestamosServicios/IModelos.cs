@@ -12,11 +12,11 @@ namespace PrestamosServicios
     public interface IModelos
     {
         [OperationContract]
-        Modelo CrearModelo(string modelo);
+        Modelo CrearModelo(string modelo, int categoria);
         [OperationContract]
         Modelo ObtenerModelo(int codigo);
         [OperationContract]
-        Modelo ModificarModelo(int codigo, string modelo);
+        Modelo ModificarModelo(int codigo, string modelo, int categoria);
         [OperationContract]
         void EliminarModelo(int codigo);
         [OperationContract]

@@ -10,12 +10,10 @@ namespace PrestamosServicios.Dominio
     public class Equipo
     {
         [DataMember]
-        public int Codigo { get; set; }
+        public string Serie { get; set; }
         [DataMember]
         public int Modelo { get; set; }
         [DataMember]
         public string Estado { get; set; }
-        [DataMember]
-        public string Serie{ get; set; }
     }
 }

@@ -31,16 +31,7 @@ namespace PrestamosServicios
                 return modeloDAO;
             }
         }
-        private CategoriaDAO categoriaDAO = null;
-        private CategoriaDAO CategoriaDAO
-        {
-            get
-            {
-                if (categoriaDAO == null)
-                    categoriaDAO = new CategoriaDAO();
-                return categoriaDAO;
-            }   
-        }
+
 
         public Equipo CrearEquipo(int modelo, string estado, string serie)
         {
@@ -55,10 +46,11 @@ namespace PrestamosServicios
                     new FaultReason("Validación de Negocio")
                     );
             }
+            Modelo modeloExistente = ModeloDAO.Obtener(modelo);
             Equipo equipoACrear = new Equipo()
             {
-                
-                Modelo = modelo,
+
+                Modelo = modeloExistente.Codigo,
                 Estado = estado,
                 Serie = serie
 
@@ -66,9 +58,9 @@ namespace PrestamosServicios
             return EquipoDAO.Crear(equipoACrear);
         }
 
-        public void EliminarEquipo(int codigo)
+        public void EliminarEquipo(string serie)
         {
-            Equipo equipoExistente = EquipoDAO.Obtener(codigo);
+            Equipo equipoExistente = EquipoDAO.Obtener(serie);
             EquipoDAO.Eliminar(equipoExistente);
         }
 
@@ -77,11 +69,10 @@ namespace PrestamosServicios
             return EquipoDAO.ListarTodos().ToList();
         }
 
-        public Equipo ModificarEquipo(int codigo, int modelo, string estado, string serie)
+        public Equipo ModificarEquipo(int modelo, string estado, string serie)
         {
             Equipo equipoAModificar = new Equipo()
             {
-                Codigo = codigo,
                 Modelo = modelo,
                 Estado = estado,
                 Serie = serie
@@ -90,9 +81,9 @@ namespace PrestamosServicios
             return EquipoDAO.Modificar(equipoAModificar);
         }
 
-        public Equipo ObtenerEquipo(int codigo)
+        public Equipo ObtenerEquipo(string serie)
         {
-            return EquipoDAO.Obtener(codigo);
+            return EquipoDAO.Obtener(serie);
         }
     }
 }

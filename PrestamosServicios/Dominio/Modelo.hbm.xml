@@ -8,5 +8,6 @@
       <generator class="increment" />
     </id>
     <property name="Model" column="modelo" />
+    <many-to-one name="CoCategoria" column="co_categoria" />
   </class>
 </hibernate-mapping>

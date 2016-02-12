@@ -13,5 +13,7 @@ namespace PrestamosServicios.Dominio
         public int Codigo { get; set; }
         [DataMember]
         public string Model { get; set; }
+        [DataMember]
+        public int CoCategoria { get; set; }
     }
 }

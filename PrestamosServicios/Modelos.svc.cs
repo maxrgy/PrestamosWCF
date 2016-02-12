@@ -21,12 +21,25 @@ namespace PrestamosServicios
                 return modeloDAO;
             }
         }
-
-        public Modelo CrearModelo(string modelo)
+        private CategoriaDAO categoriaDAO = null;
+        private CategoriaDAO CategoriaDAO
         {
+            get
+            {
+                if (categoriaDAO == null)
+                    categoriaDAO = new CategoriaDAO();
+                return categoriaDAO;
+            }
+        }
+
+
+        public Modelo CrearModelo(string modelo, int categoria)
+        {
+            Categoria categoriaExistente = CategoriaDAO.Obtener(categoria);
             Modelo modeloACrear = new Modelo()
             {
                 Model = modelo,
+                CoCategoria = categoriaExistente.Codigo
             };
             return ModeloDAO.Crear(modeloACrear);
         }
@@ -42,12 +55,13 @@ namespace PrestamosServicios
             return ModeloDAO.ListarTodos().ToList();
         }
 
-        public Modelo ModificarModelo(int codigo, string modelo)
+        public Modelo ModificarModelo(int codigo, string modelo, int categoria)
         {
             Modelo modeloAModificar = new Modelo()
             {
                 Codigo = codigo,
                 Model = modelo,
+                CoCategoria = categoria
             };
             return ModeloDAO.Modificar(modeloAModificar);
         }
