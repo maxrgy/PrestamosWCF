@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dominio\Equipo.hbm.xml" />
+    <EmbeddedResource Include="Autenticacion.svc" />
     <Content Include="Categorias.svc" />
     <EmbeddedResource Include="Dominio\Categoria.hbm.xml" />
     <EmbeddedResource Include="Dominio\Modelo.hbm.xml" />
@@ -110,6 +111,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autenticacion.svc.cs">
+      <DependentUpon>Autenticacion.svc</DependentUpon>
+    </Compile>
     <Compile Include="Categorias.svc.cs">
       <DependentUpon>Categorias.svc</DependentUpon>
     </Compile>
@@ -117,11 +121,14 @@
     <Compile Include="Dominio\Equipo.cs" />
     <Compile Include="Dominio\ExcepcionEquipo.cs" />
     <Compile Include="Dominio\Modelo.cs" />
+    <Compile Include="Dominio\PasswordIncorrectaExcepcion.cs" />
     <Compile Include="Dominio\Prestamo.cs" />
     <Compile Include="Dominio\Prueba.cs" />
+    <Compile Include="Dominio\User.cs" />
     <Compile Include="Equipos.svc.cs">
       <DependentUpon>Equipos.svc</DependentUpon>
     </Compile>
+    <Compile Include="IAutenticacion.cs" />
     <Compile Include="ICategorias.cs" />
     <Compile Include="IEquipos.cs" />
     <Compile Include="IModelos.cs" />

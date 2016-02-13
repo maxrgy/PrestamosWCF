@@ -67,7 +67,7 @@ namespace PrestamosServicios
         }
 
         public Prestamo ObtenerPrestamo(int codigo)
-        {
+        {   
             return PrestamoDAO.Obtener(codigo);
         }
     }
