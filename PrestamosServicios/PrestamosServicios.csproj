@@ -120,9 +120,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Autenticacion.svc.cs">
+    <Compile Include="Autenticacion.svc.cs">
       <DependentUpon>Autenticacion.svc</DependentUpon>
-    </Content>
+    </Compile>
     <Compile Include="Categorias.svc.cs">
       <DependentUpon>Categorias.svc</DependentUpon>
     </Compile>
