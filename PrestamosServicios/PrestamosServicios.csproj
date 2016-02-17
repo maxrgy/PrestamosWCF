@@ -96,9 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dominio\Equipo.hbm.xml" />
-    <EmbeddedResource Include="Autenticacion.svc">
+    <Content Include="Autenticacion.svc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <Content Include="Categorias.svc" />
     <EmbeddedResource Include="Dominio\Categoria.hbm.xml" />
     <EmbeddedResource Include="Dominio\Modelo.hbm.xml" />
@@ -122,10 +122,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autenticacion.svc.cs">
+    <Content Include="Autenticacion.svc.cs">
       <DependentUpon>Autenticacion.svc</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    </Content>
     <Compile Include="Categorias.svc.cs">
       <DependentUpon>Categorias.svc</DependentUpon>
     </Compile>
