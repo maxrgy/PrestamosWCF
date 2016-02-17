@@ -1,4 +1,5 @@
 ﻿using PrestamosServicios.Dominio;
+using PrestamosServicios.usuariosWS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,13 @@ namespace PrestamosServicios
     [ServiceContract]
     public interface IAutenticacion
     {
+        [FaultContract(typeof(UsuarioNoEncontradoExcepcion))]
         [OperationContract]
-        User VerificarExistenciaUsuario(string usuario, string password);
+        Usuario VerificarExistenciaUsuario(string usuario);
+
         [FaultContract(typeof(PasswordIncorrectaExcepcion))]
         [OperationContract]
-        int VerificarPassword(User usuarioConUsername, string password);
-        [OperationContract]
-        int ObtenerTipoUsuario(User usuarioLogeado);
+        int VerificarPassword(Usuario usuarioConUsername, string password);
+        
     }
 }

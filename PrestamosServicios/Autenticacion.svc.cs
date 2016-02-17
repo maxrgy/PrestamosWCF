@@ -8,54 +8,38 @@ using PrestamosServicios.Dominio;
 using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
+using PrestamosServicios.usuariosWS;
 
 namespace PrestamosServicios
 {
     public class Autenticacion : IAutenticacion
     {
-        public int ObtenerTipoUsuario(User usuarioLogeado)
+        public Usuario VerificarExistenciaUsuario(string usuario)
         {
-            throw new NotImplementedException();
+            Usuario usuarioObtenido = new Usuario();
+            usuariosWS.UsuariosClient proxy = new usuariosWS.UsuariosClient();
+            usuarioObtenido = proxy.ObtenerUsuario(usuario);
+            if (usuarioObtenido == null)
+            {
+                throw new FaultException<UsuarioNoEncontradoExcepcion>(
+                    new UsuarioNoEncontradoExcepcion()
+                    {
+                        Codigo = "001",
+                        Mensaje = "El usuario no existe"
+                    },
+                    new FaultReason("Validación de negocio"));
+            }
+            return usuarioObtenido;
         }
 
-        public User VerificarExistenciaUsuario(string usuario, string password)
-        {
-            User userObtenido = new User();
-            string direccion = "http://localhost:60474/Users.svc/Users/" + usuario;
-            HttpWebRequest req2 = (HttpWebRequest)WebRequest
-                .Create(direccion);
-            req2.Method = "GET";
-            try
-            {
-                HttpWebResponse res = (HttpWebResponse)req2.GetResponse();
-                StreamReader reader = new StreamReader(res.GetResponseStream());
-                string userJson2 = reader.ReadToEnd();
-                JavaScriptSerializer js2 = new JavaScriptSerializer();
-                userObtenido = js2.Deserialize<User>(userJson2);
-
-            }
-            catch (WebException e)
-            {
-                HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
-                string message = ((HttpWebResponse)e.Response).StatusDescription;
-                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
-                string error = reader.ReadToEnd();
-                JavaScriptSerializer js2 = new JavaScriptSerializer();
-                string mensaje = js2.Deserialize<string>(error);
-
-            }
-
-            return userObtenido;
-        }
-
-        public int VerificarPassword(User usuarioConUsername, string password)
+        public int VerificarPassword(Usuario usuarioConUsername, string password)
         {
             if (usuarioConUsername.Password != password)
             {
                 throw new FaultException<PasswordIncorrectaExcepcion>(
                     new PasswordIncorrectaExcepcion()
                     {
-                        Codigo = "001",
+                        Codigo = "002",
                         Mensaje = "Contraseña errada"
                     },
                     new FaultReason("Validación de negocio"));

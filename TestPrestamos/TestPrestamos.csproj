@@ -48,24 +48,48 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Service References\autenticacionWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\equiposWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="PruebaEquipos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PruebaAutenticacion.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\autenticacionWS\Autenticacion.wsdl" />
+    <None Include="Service References\autenticacionWS\Autenticacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\autenticacionWS\Autenticacion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\autenticacionWS\Autenticacion2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\autenticacionWS\Autenticacion3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\autenticacionWS\TestPrestamos.autenticacionWS.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\equiposWS\Equipos.wsdl" />
     <None Include="Service References\equiposWS\Equipos.xsd">
       <SubType>Designer</SubType>
@@ -81,6 +105,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\autenticacionWS\" />
     <WCFMetadataStorage Include="Service References\equiposWS\" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +119,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\equiposWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\autenticacionWS\Autenticacion.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\autenticacionWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\autenticacionWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\autenticacionWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
