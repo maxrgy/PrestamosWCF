@@ -23,16 +23,16 @@ namespace TestPrestamos.equiposWS {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CategoriaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CodigoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EstadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ModeloField;
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModeloField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SerieField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -41,32 +41,6 @@ namespace TestPrestamos.equiposWS {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Categoria {
-            get {
-                return this.CategoriaField;
-            }
-            set {
-                if ((this.CategoriaField.Equals(value) != true)) {
-                    this.CategoriaField = value;
-                    this.RaisePropertyChanged("Categoria");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((this.CodigoField.Equals(value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
             }
         }
         
@@ -84,75 +58,40 @@ namespace TestPrestamos.equiposWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Modelo {
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Modelo {
             get {
                 return this.ModeloField;
             }
             set {
-                if ((this.ModeloField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.ModeloField, value) != true)) {
                     this.ModeloField = value;
                     this.RaisePropertyChanged("Modelo");
                 }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ExcepcionEquipo", Namespace="http://schemas.datacontract.org/2004/07/PrestamosServicios.Dominio")]
-    [System.SerializableAttribute()]
-    public partial class ExcepcionEquipo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string mensajeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cod {
+        public string Serie {
             get {
-                return this.CodField;
+                return this.SerieField;
             }
             set {
-                if ((object.ReferenceEquals(this.CodField, value) != true)) {
-                    this.CodField = value;
-                    this.RaisePropertyChanged("Cod");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string mensaje {
-            get {
-                return this.mensajeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.mensajeField, value) != true)) {
-                    this.mensajeField = value;
-                    this.RaisePropertyChanged("mensaje");
+                if ((object.ReferenceEquals(this.SerieField, value) != true)) {
+                    this.SerieField = value;
+                    this.RaisePropertyChanged("Serie");
                 }
             }
         }
@@ -172,11 +111,10 @@ namespace TestPrestamos.equiposWS {
     public interface IEquipos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEquipos/CrearEquipo", ReplyAction="http://tempuri.org/IEquipos/CrearEquipoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TestPrestamos.equiposWS.ExcepcionEquipo), Action="http://tempuri.org/IEquipos/CrearEquipoExcepcionEquipoFault", Name="ExcepcionEquipo", Namespace="http://schemas.datacontract.org/2004/07/PrestamosServicios.Dominio")]
-        TestPrestamos.equiposWS.Equipo CrearEquipo(int modelo, string estado, int categoria);
+        TestPrestamos.equiposWS.Equipo CrearEquipo(string serie, string modelo, string estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEquipos/CrearEquipo", ReplyAction="http://tempuri.org/IEquipos/CrearEquipoResponse")]
-        System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> CrearEquipoAsync(int modelo, string estado, int categoria);
+        System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> CrearEquipoAsync(string serie, string modelo, string estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEquipos/ObtenerEquipo", ReplyAction="http://tempuri.org/IEquipos/ObtenerEquipoResponse")]
         TestPrestamos.equiposWS.Equipo ObtenerEquipo(int codigo);
@@ -185,10 +123,10 @@ namespace TestPrestamos.equiposWS {
         System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> ObtenerEquipoAsync(int codigo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEquipos/ModificarEquipo", ReplyAction="http://tempuri.org/IEquipos/ModificarEquipoResponse")]
-        TestPrestamos.equiposWS.Equipo ModificarEquipo(int codigo, int modelo, string estado, int categoria);
+        TestPrestamos.equiposWS.Equipo ModificarEquipo(int codigo, string serie, string modelo, string estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEquipos/ModificarEquipo", ReplyAction="http://tempuri.org/IEquipos/ModificarEquipoResponse")]
-        System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> ModificarEquipoAsync(int codigo, int modelo, string estado, int categoria);
+        System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> ModificarEquipoAsync(int codigo, string serie, string modelo, string estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEquipos/EliminarEquipo", ReplyAction="http://tempuri.org/IEquipos/EliminarEquipoResponse")]
         void EliminarEquipo(int codigo);
@@ -230,12 +168,12 @@ namespace TestPrestamos.equiposWS {
                 base(binding, remoteAddress) {
         }
         
-        public TestPrestamos.equiposWS.Equipo CrearEquipo(int modelo, string estado, int categoria) {
-            return base.Channel.CrearEquipo(modelo, estado, categoria);
+        public TestPrestamos.equiposWS.Equipo CrearEquipo(string serie, string modelo, string estado) {
+            return base.Channel.CrearEquipo(serie, modelo, estado);
         }
         
-        public System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> CrearEquipoAsync(int modelo, string estado, int categoria) {
-            return base.Channel.CrearEquipoAsync(modelo, estado, categoria);
+        public System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> CrearEquipoAsync(string serie, string modelo, string estado) {
+            return base.Channel.CrearEquipoAsync(serie, modelo, estado);
         }
         
         public TestPrestamos.equiposWS.Equipo ObtenerEquipo(int codigo) {
@@ -246,12 +184,12 @@ namespace TestPrestamos.equiposWS {
             return base.Channel.ObtenerEquipoAsync(codigo);
         }
         
-        public TestPrestamos.equiposWS.Equipo ModificarEquipo(int codigo, int modelo, string estado, int categoria) {
-            return base.Channel.ModificarEquipo(codigo, modelo, estado, categoria);
+        public TestPrestamos.equiposWS.Equipo ModificarEquipo(int codigo, string serie, string modelo, string estado) {
+            return base.Channel.ModificarEquipo(codigo, serie, modelo, estado);
         }
         
-        public System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> ModificarEquipoAsync(int codigo, int modelo, string estado, int categoria) {
-            return base.Channel.ModificarEquipoAsync(codigo, modelo, estado, categoria);
+        public System.Threading.Tasks.Task<TestPrestamos.equiposWS.Equipo> ModificarEquipoAsync(int codigo, string serie, string modelo, string estado) {
+            return base.Channel.ModificarEquipoAsync(codigo, serie, modelo, estado);
         }
         
         public void EliminarEquipo(int codigo) {

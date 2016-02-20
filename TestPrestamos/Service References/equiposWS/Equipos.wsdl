@@ -3,8 +3,8 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:49403/Equipos.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:49403/Equipos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PrestamosServicios.Dominio" />
       <xsd:import schemaLocation="http://localhost:49403/Equipos.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49403/Equipos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PrestamosServicios.Dominio" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IEquipos_CrearEquipo_InputMessage">
@@ -12,9 +12,6 @@
   </wsdl:message>
   <wsdl:message name="IEquipos_CrearEquipo_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearEquipoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IEquipos_CrearEquipo_ExcepcionEquipoFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/PrestamosServicios.Dominio" name="detail" element="q1:ExcepcionEquipo" />
   </wsdl:message>
   <wsdl:message name="IEquipos_ObtenerEquipo_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerEquipo" />
@@ -44,7 +41,6 @@
     <wsdl:operation name="CrearEquipo">
       <wsdl:input wsaw:Action="http://tempuri.org/IEquipos/CrearEquipo" message="tns:IEquipos_CrearEquipo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEquipos/CrearEquipoResponse" message="tns:IEquipos_CrearEquipo_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IEquipos/CrearEquipoExcepcionEquipoFault" name="ExcepcionEquipoFault" message="tns:IEquipos_CrearEquipo_ExcepcionEquipoFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerEquipo">
       <wsdl:input wsaw:Action="http://tempuri.org/IEquipos/ObtenerEquipo" message="tns:IEquipos_ObtenerEquipo_InputMessage" />
@@ -73,9 +69,6 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="ExcepcionEquipoFault">
-        <soap:fault use="literal" name="ExcepcionEquipoFault" namespace="" />
-      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="ObtenerEquipo">
       <soap:operation soapAction="http://tempuri.org/IEquipos/ObtenerEquipo" style="document" />

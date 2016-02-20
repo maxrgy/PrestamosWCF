@@ -60,14 +60,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="PruebaEquipos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PruebaAutenticacion.cs" />
     <Compile Include="Service References\equiposWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="PruebaEquipos.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PruebaAutenticacion.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -109,21 +109,6 @@
     <WCFMetadataStorage Include="Service References\equiposWS\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\equiposWS\Equipos.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\equiposWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\equiposWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\equiposWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\autenticacionWS\Autenticacion.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +119,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\autenticacionWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\equiposWS\Equipos.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\equiposWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\equiposWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\equiposWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

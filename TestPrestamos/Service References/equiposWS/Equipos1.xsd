@@ -4,9 +4,9 @@
   <xs:element name="CrearEquipo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="modelo" type="xs:int" />
+        <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="categoria" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -35,9 +35,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigo" type="xs:int" />
-        <xs:element minOccurs="0" name="modelo" type="xs:int" />
+        <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="categoria" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
