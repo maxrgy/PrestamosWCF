@@ -9,6 +9,7 @@ using PrestamosServicios.Persistencia;
 
 namespace PrestamosServicios
 {
+    //hombres trabajando
     public class Equipos : IEquipos
     {
         private EquipoDAO equipoDAO = null;
